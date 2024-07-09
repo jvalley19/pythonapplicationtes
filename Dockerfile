@@ -19,7 +19,6 @@ ENV UWSGI_INI uwsgi.ini
 # with the same name as the app underneath "static" so there aren't any collisions
 # when all those static files are collected together.
 ENV STATIC_URL /hello_app/static
-ENTRYPOINT ["python"]
 
 # Set the folder where uwsgi looks for the app
 WORKDIR /hello_app
@@ -33,3 +32,4 @@ COPY . /hello_app
 #COPY requirements.txt /
 #RUN pip install --no-cache-dir -U pip
 #RUN pip install --no-cache-dir -r /requirements.txt
+ENTRYPOINT /webapp.py
